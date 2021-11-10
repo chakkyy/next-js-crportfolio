@@ -235,7 +235,7 @@ export default function Home() {
 
           <h3 className="job-title">
             <span className="text-reveal">
-              Carlos Ramirez / Frontend Developer
+              Carlos Ramirez | Frontend Developer
             </span>
           </h3>
           <button className="scroll-indicator" onClick={executeScroll}>
