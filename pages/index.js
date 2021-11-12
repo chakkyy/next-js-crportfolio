@@ -182,7 +182,7 @@ export default function Home() {
             <ul className="nav-list">
               <li>
                 <motion.a
-                  href="https://drive.google.com/file/d/19StscuAe5AXw8Gha7BNNQcnG7zsP5MBv/view"
+                  href="https://drive.google.com/file/d/12QXvyOTASsTiDLR8nPInK4q-iICRBAyx/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
@@ -245,7 +245,7 @@ export default function Home() {
         </main>
         <div className="project-container" ref={projectsRef}>
           {projectsList.map(
-            ({ name, description, image, link, GitHub, tools, index }) => (
+            ({ name, description, image, link, GitHub, tools }, index) => (
               <div className="project" key={index}>
                 <Link href={link}>
                   <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
@@ -256,10 +256,8 @@ export default function Home() {
                     />
                   </Tilt>
                 </Link>
-                <div className="project-info">
-                  <Link href={link}>
-                    <h3>{name}</h3>
-                  </Link>
+                <div className="project-info" key={index}>
+                  <h3 className="playful">{name}</h3>
                   {description.split("\n").map((str, index) => (
                     <p key={index}>{str}</p>
                   ))}
@@ -269,7 +267,7 @@ export default function Home() {
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
-                  <motion.div className="project-btns">
+                  <motion.div className="project-btns" key={index}>
                     <motion.a
                       href={link}
                       target="_blank"
@@ -307,7 +305,7 @@ export default function Home() {
           <ul className="footer-links">
             <li>
               <motion.a
-                href="https://drive.google.com/file/d/19StscuAe5AXw8Gha7BNNQcnG7zsP5MBv/view?usp=sharing"
+                href="https://drive.google.com/file/d/12QXvyOTASsTiDLR8nPInK4q-iICRBAyx/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}

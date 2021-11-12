@@ -1,6 +1,6 @@
 .playful {
   transition: all 0.4s cubic-bezier(0.15, 0.75, 0.45, 0.95) 0s;
-  animation: 10s ease 0s infinite alternate none running rainbow;
+  animation: 6s ease 0s infinite alternate none running rainbow;
 }
 
 .container {
@@ -198,6 +198,7 @@
         text-align: left;
         color: $white;
         margin: 0 32px;
+
         @media (max-width: 967px) {
           width: 275px;
         }
@@ -214,13 +215,9 @@
           }
         }
         h3 {
-          cursor: pointer;
           font-size: 2rem;
           margin: 0;
-          &:hover {
-            transition: all 0.1s cubic-bezier(0.15, 0.75, 0.45, 0.95) 0s;
-            animation: 10s ease 0s infinite alternate none running rainbow;
-          }
+
           @media (max-height: 800px) {
             font-size: 1.6rem;
           }
