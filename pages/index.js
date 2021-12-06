@@ -247,15 +247,13 @@ export default function Home() {
           {projectsList.map(
             ({ name, description, image, link, GitHub, tools }, index) => (
               <div className="project" key={index}>
-                <Link href={link}>
-                  <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
-                    <motion.img
-                      className="project-image"
-                      src={image}
-                      alt={name}
-                    />
-                  </Tilt>
-                </Link>
+                <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
+                  <motion.img
+                    className="project-image"
+                    src={image}
+                    alt={name}
+                  />
+                </Tilt>
                 <div className="project-info" key={index}>
                   <h3 className="playful">{name}</h3>
                   {description.split("\n").map((str, index) => (
@@ -263,23 +261,25 @@ export default function Home() {
                   ))}
                   <h4>Tools used:</h4>
                   <ul className="tools-list">
-                    {tools.map((item, index) => (
+                    {tools?.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                   <motion.div className="project-btns" key={index}>
-                    <motion.a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      title={`Open site of ${name}`}
-                    >
-                      <motion.button className="project-btn">
-                        Open Site
-                      </motion.button>
-                    </motion.a>
+                    {link && (
+                      <motion.a
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        title={`Open site of ${name}`}
+                      >
+                        <motion.button className="project-btn">
+                          Open Site
+                        </motion.button>
+                      </motion.a>
+                    )}
                     {GitHub && (
                       <motion.a
                         href={GitHub}

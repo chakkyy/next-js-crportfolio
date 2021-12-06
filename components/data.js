@@ -41,6 +41,25 @@ export const projectsList = [
   },
   {
     id: 4,
+    name: "Earth App",
+    description:
+      "A SPA That consumes data of countries from RESTcountries API ",
+    image: "/images/countriesapp.png",
+    project: "countriesapp",
+    GitHub: "https://github.com/chakkyy/countries-app",
+    tools: [
+      "React",
+      "Redux",
+      "Axios",
+      "Sass",
+      "PostgreSQL",
+      "Express.js",
+      "Sequelize",
+      "Node.js",
+    ],
+  },
+  {
+    id: 5,
     name: "Weather App",
     description:
       "My very first project was an weather app that consumes OpenWeather API data",
