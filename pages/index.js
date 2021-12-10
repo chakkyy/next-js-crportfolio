@@ -182,7 +182,7 @@ export default function Home() {
             <ul className="nav-list">
               <li>
                 <motion.a
-                  href="https://drive.google.com/file/d/12QXvyOTASsTiDLR8nPInK4q-iICRBAyx/view"
+                  href="https://drive.google.com/file/d/1pAOL4jNZVD7JoLWoWbCJ-J4GeQpMxGAW/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
@@ -305,7 +305,7 @@ export default function Home() {
           <ul className="footer-links">
             <li>
               <motion.a
-                href="https://drive.google.com/file/d/12QXvyOTASsTiDLR8nPInK4q-iICRBAyx/view"
+                href="https://drive.google.com/file/d/1pAOL4jNZVD7JoLWoWbCJ-J4GeQpMxGAW/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
