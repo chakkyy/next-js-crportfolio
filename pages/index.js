@@ -166,9 +166,9 @@ export default function Home() {
         <meta charSet="utf-8" />
         <meta
           name="description"
-          content="Frontend Developer portfolio for Carlos Ramirez."
+          content="FullStack Developer portfolio for Carlos Ramirez."
         ></meta>
-        <title>Carlos Ramirez | Frontend Developer</title>
+        <title>Carlos Ramirez | FullStack Developer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {animationComplete === false && <IntroOverlay />}
