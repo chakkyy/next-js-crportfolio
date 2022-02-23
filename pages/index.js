@@ -1,41 +1,41 @@
-import { useEffect, useState, useRef } from "react";
-import { projectsList } from "../components/data";
-import Head from "next/head";
-import IntroOverlay from "../components/introOverlay";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState, useRef } from "react"
+import { projectsList } from "../components/data"
+import Head from "next/head"
+import IntroOverlay from "../components/introOverlay"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faChevronDown,
   faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Tilt from "react-parallax-tilt";
+} from "@fortawesome/free-solid-svg-icons"
+import { motion } from "framer-motion"
+import Link from "next/link"
+import Tilt from "react-parallax-tilt"
 
 export default function Home() {
-  const [animationComplete, setAnimationComplete] = useState(false);
-  const projectsRef = useRef(null);
-  const scrollRef = useRef(null);
+  const [animationComplete, setAnimationComplete] = useState(false)
+  const projectsRef = useRef(null)
+  const scrollRef = useRef(null)
 
   const completeAnimation = () => {
-    setAnimationComplete(true);
-    document.body.style.overflowY = "auto";
-  };
+    setAnimationComplete(true)
+    document.body.style.overflowY = "auto"
+  }
 
-  const executeScroll = () => projectsRef.current.scrollIntoView();
+  const executeScroll = () => projectsRef.current.scrollIntoView()
 
   useEffect(() => {
     // Inner Page height for mobile devices
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty("--vh", `${vh}px`)
 
     // GSAP animation
-    gsap.registerPlugin(ScrollTrigger);
-    let tl = gsap.timeline();
-    let projects = gsap.utils.toArray(".project");
-    let mediaQuery = window.matchMedia("(min-width: 967px)");
+    gsap.registerPlugin(ScrollTrigger)
+    let tl = gsap.timeline()
+    let projects = gsap.utils.toArray(".project")
+    let mediaQuery = window.matchMedia("(min-width: 967px)")
 
     const homeAnimation = (animation) => {
       tl.to(".ball", {
@@ -78,7 +78,7 @@ export default function Home() {
           y: 100,
           opacity: 0,
           ease: "power3.out",
-        });
+        })
 
       if (mediaQuery.matches) {
         projects.forEach((project) => {
@@ -89,9 +89,9 @@ export default function Home() {
               end: "center center",
               scrub: 1,
             },
-          });
-          let projectImage = project.querySelector("img");
-          let projectInfo = project.querySelector(".project-info");
+          })
+          let projectImage = project.querySelector("img")
+          let projectInfo = project.querySelector(".project-info")
 
           tlProject
             .from(projectImage, {
@@ -101,8 +101,8 @@ export default function Home() {
             .from(projectInfo, {
               x: 300,
               opacity: 0,
-            });
-        });
+            })
+        })
       } else {
         projects.forEach((project) => {
           let tlProject = gsap.timeline({
@@ -112,9 +112,9 @@ export default function Home() {
               end: "center center",
               scrub: 1,
             },
-          });
-          let projectImage = project.querySelector("img");
-          let projectInfo = project.querySelector(".project-info");
+          })
+          let projectImage = project.querySelector("img")
+          let projectInfo = project.querySelector(".project-info")
 
           tlProject
             .from(projectImage, {
@@ -124,8 +124,8 @@ export default function Home() {
             .from(projectInfo, {
               y: 100,
               opacity: 0,
-            });
-        });
+            })
+        })
       }
 
       let tlFooter = gsap.timeline({
@@ -135,7 +135,7 @@ export default function Home() {
           end: "top top",
           scrub: 1,
         },
-      });
+      })
 
       tlFooter
         .from("footer h2", {
@@ -147,44 +147,44 @@ export default function Home() {
           y: 100,
           opacity: 0,
           duration: 0.6,
-        });
-    };
+        })
+    }
 
-    homeAnimation(completeAnimation);
-  }, []);
+    homeAnimation(completeAnimation)
+  }, [])
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="container"
+      className='container'
       ref={scrollRef}
     >
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta charSet='utf-8' />
         <meta
-          name="description"
-          content="FullStack Developer portfolio for Carlos Ramirez."
+          name='description'
+          content='FullStack Developer portfolio for Carlos Ramirez.'
         ></meta>
         <title>Carlos Ramirez | FullStack Developer</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       {animationComplete === false && <IntroOverlay />}
-      <div className="after-animation">
-        <nav className="home-nav">
-          <div className="space-between">
-            <Link href="/">
-              <div className="logo">CR</div>
+      <div className='after-animation'>
+        <nav className='home-nav'>
+          <div className='space-between'>
+            <Link href='/'>
+              <div className='logo'>CR</div>
             </Link>
 
-            <ul className="nav-list">
+            <ul className='nav-list'>
               <li>
                 <motion.a
-                  href="https://drive.google.com/file/d/1pAOL4jNZVD7JoLWoWbCJ-J4GeQpMxGAW/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://drive.google.com/file/d/19shXIrHQZo4_3UdBBnzUNiEj31HQkQXO/view'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   title="Download Carlos's Resume"
@@ -194,88 +194,88 @@ export default function Home() {
               </li>
               <li>
                 <motion.a
-                  href="https://github.com/chakkyy"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://github.com/chakkyy'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   title="Go to Carlos's GitHub"
                 >
-                  <FontAwesomeIcon icon={faGithub} size="2x" />
-                  <span className="header-hidden-text">GitHub</span>
+                  <FontAwesomeIcon icon={faGithub} size='2x' />
+                  <span className='header-hidden-text'>GitHub</span>
                 </motion.a>
               </li>
               <li>
                 <motion.a
-                  href="https://www.linkedin.com/in/carlosramirezdev/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://www.linkedin.com/in/carlosramirezdev/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  title="Connect with Carlos on LinkedIn"
+                  title='Connect with Carlos on LinkedIn'
                 >
-                  <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                  <span className="header-hidden-text">LinkedIn</span>
+                  <FontAwesomeIcon icon={faLinkedin} size='2x' />
+                  <span className='header-hidden-text'>LinkedIn</span>
                 </motion.a>
               </li>
             </ul>
           </div>
         </nav>
-        <main className="main-home">
-          <div className="cta">
-            <h1 className="title">
-              I create <span className="playful">playful</span> experiences.
+        <main className='main-home'>
+          <div className='cta'>
+            <h1 className='title'>
+              I create <span className='playful'>playful</span> experiences.
             </h1>
             <img
-              src="/images/MyPeep.png"
-              alt="My Peep"
-              className="peep-image"
+              src='/images/MyPeep.png'
+              alt='My Peep'
+              className='peep-image'
             />
           </div>
 
-          <h3 className="job-title">
-            <span className="text-reveal">
+          <h3 className='job-title'>
+            <span className='text-reveal'>
               Carlos Ramirez | Fullstack Developer
             </span>
           </h3>
-          <button className="scroll-indicator" onClick={executeScroll}>
+          <button className='scroll-indicator' onClick={executeScroll}>
             <span>Projects</span>
             <FontAwesomeIcon icon={faChevronDown} />
           </button>
         </main>
-        <div className="project-container" ref={projectsRef}>
+        <div className='project-container' ref={projectsRef}>
           {projectsList.map(
             ({ name, description, image, link, GitHub, tools }, index) => (
-              <div className="project" key={index}>
-                <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
+              <div className='project' key={index}>
+                <Tilt tiltMaxAngleX='5' tiltMaxAngleY='5'>
                   <motion.img
-                    className="project-image"
+                    className='project-image'
                     src={image}
                     alt={name}
                   />
                 </Tilt>
-                <div className="project-info" key={index}>
-                  <h3 className="playful">{name}</h3>
+                <div className='project-info' key={index}>
+                  <h3 className='playful'>{name}</h3>
                   {description.split("\n").map((str, index) => (
                     <p key={index}>{str}</p>
                   ))}
                   <h4>Tools used:</h4>
-                  <ul className="tools-list">
+                  <ul className='tools-list'>
                     {tools?.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
-                  <motion.div className="project-btns" key={index}>
+                  <motion.div className='project-btns' key={index}>
                     {link && (
                       <motion.a
                         href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         title={`Open site of ${name}`}
                       >
-                        <motion.button className="project-btn">
+                        <motion.button className='project-btn'>
                           Open Site
                         </motion.button>
                       </motion.a>
@@ -283,13 +283,13 @@ export default function Home() {
                     {GitHub && (
                       <motion.a
                         href={GitHub}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         title={`View Code for ${name}`}
                       >
-                        <motion.button className="project-btn">
+                        <motion.button className='project-btn'>
                           View Code
                         </motion.button>
                       </motion.a>
@@ -301,13 +301,13 @@ export default function Home() {
           )}
         </div>
         <footer>
-          <h2 className="playful">Connect with Me</h2>
-          <ul className="footer-links">
+          <h2 className='playful'>Connect with Me</h2>
+          <ul className='footer-links'>
             <li>
               <motion.a
-                href="https://drive.google.com/file/d/1pAOL4jNZVD7JoLWoWbCJ-J4GeQpMxGAW/view"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://drive.google.com/file/d/19shXIrHQZo4_3UdBBnzUNiEj31HQkQXO/view'
+                target='_blank'
+                rel='noopener noreferrer'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 title="Download Carlos's Resume"
@@ -317,33 +317,33 @@ export default function Home() {
             </li>
             <li>
               <motion.a
-                href="https://github.com/chakkyy"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://github.com/chakkyy'
+                target='_blank'
+                rel='noopener noreferrer'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 title="Go to Carlos's GitHub"
               >
-                <FontAwesomeIcon icon={faGithub} size="2x" />
-                <span className="footer-hidden-text">GitHub</span>
+                <FontAwesomeIcon icon={faGithub} size='2x' />
+                <span className='footer-hidden-text'>GitHub</span>
               </motion.a>
             </li>
             <li>
               <motion.a
-                href="https://www.linkedin.com/in/carlosramirezdev/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://www.linkedin.com/in/carlosramirezdev/'
+                target='_blank'
+                rel='noopener noreferrer'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                title="Connect with Carlos on LinkedIn"
+                title='Connect with Carlos on LinkedIn'
               >
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                <span className="footer-hidden-text">LinkedIn</span>
+                <FontAwesomeIcon icon={faLinkedin} size='2x' />
+                <span className='footer-hidden-text'>LinkedIn</span>
               </motion.a>
             </li>
           </ul>
         </footer>
       </div>
     </motion.div>
-  );
+  )
 }
